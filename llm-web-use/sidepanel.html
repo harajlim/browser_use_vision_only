@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Web Use Chat</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div id="chat-container">
+      <!-- Messages will be appended here by sidepanel.js -->
+    </div>
+    <div id="input-container">
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="action-mode-toggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-label">Action Mode</span>
+      </div>
+      <input type="text" id="input" placeholder="Type a message…" autocomplete="off" />
+      <button id="send" aria-label="Send message">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="send-icon">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+    <script src="sidepanel.js"></script>
+  </body>
+</html> 

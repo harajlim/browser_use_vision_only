@@ -1,0 +1,36 @@
+{
+
+  "name": "LLM Web Use",
+  "description": "Chat with a Gemini-powered backend about the current webpage.",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "tabCapture",
+    "sidePanel",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "LLM Web Use"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["browser_actions.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+
+} 

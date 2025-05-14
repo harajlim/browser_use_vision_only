@@ -1,0 +1,224 @@
+/* Enhanced styling for a more modern and polished chat UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --background-color: #f7f8fa; /* Lighter gray for background */
+  --chat-bubble-user-background: #007aff; /* Standard iOS blue */
+  --chat-bubble-user-text: #ffffff;
+  --chat-bubble-assistant-background: #e9e9eb; /* Lighter gray for assistant */
+  --chat-bubble-assistant-text: #000000;
+  --input-background-color: #ffffff;
+  --input-border-color: #d1d1d6; /* Softer border */
+  --text-color-primary: #1d1d1f;
+  --text-color-secondary: #6e6e73;
+  --button-background-color: #007aff;
+  --button-text-color: #ffffff;
+  --border-radius-m: 8px; /* Consistent border radius */
+  --border-radius-l: 16px;
+  --padding-xs: 4px;
+  --padding-s: 8px;
+  --padding-m: 12px;
+  --padding-l: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Prevent body scroll when chat scrolls */
+}
+
+#chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--padding-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-s); /* Space between messages */
+}
+
+/* Custom scrollbar for webkit browsers */
+#chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+#chat-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+#chat-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1; /* Subtle scrollbar */
+  border-radius: var(--border-radius-m);
+}
+#chat-container::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+
+#input-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  padding: var(--padding-m);
+  border-top: 1px solid var(--input-border-color);
+  background-color: var(--input-background-color);
+  gap: var(--padding-s); /* Space between input and button */
+}
+
+#input {
+  flex: 1;
+  padding: var(--padding-s) var(--padding-m);
+  font-size: 14px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius-m);
+  background-color: var(--input-background-color);
+  color: var(--text-color-primary);
+  line-height: 1.4;
+}
+
+#input:focus {
+  outline: none;
+  border-color: var(--button-background-color);
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2); /* Subtle focus ring */
+}
+
+#send {
+  padding: var(--padding-s) var(--padding-l);
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: var(--border-radius-m);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#send:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.message {
+  padding: var(--padding-s) var(--padding-m);
+  border-radius: var(--border-radius-l); /* More rounded bubbles */
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 85%; /* Slightly narrower for better readability */
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+
+.user {
+  background-color: var(--chat-bubble-user-background);
+  color: var(--chat-bubble-user-text);
+  align-self: flex-end;
+  border-bottom-right-radius: var(--padding-xs); /* "Tail" for user bubble */
+}
+
+.assistant {
+  background-color: var(--chat-bubble-assistant-background);
+  color: var(--chat-bubble-assistant-text);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--padding-xs); /* "Tail" for assistant bubble */
+}
+
+/* Placeholder styling */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #a9a9a9;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #a9a9a9;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #a9a9a9;
+} 
+
+/* Add this CSS for the toggle switch */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; /* Adjust spacing as needed */
+  padding-left: 10px; /* Align with input padding */
+}
+
+.toggle-label {
+  margin-left: 8px;
+  font-size: 0.9em;
+  color: #555; /* Adjust color as needed */
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px; /* Smaller width */
+  height: 20px; /* Smaller height */
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; /* Smaller handle */
+  width: 16px;  /* Smaller handle */
+  left: 2px;   /* Adjust position */
+  bottom: 2px;  /* Adjust position */
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3; /* Or your preferred active color */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px); /* Adjust translation */
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px; /* Adjust for smaller height */
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Adjust input container layout if needed */
+#input-container {
+    /* If it's not already flex, you might need this */
+    /* display: flex; */
+    /* flex-direction: column; /* Stack toggle above input */
+    /* align-items: stretch; /* Make children fill width */
+} 
