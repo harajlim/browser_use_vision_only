@@ -22,7 +22,7 @@ This project enables users to interact with web pages using natural language thr
 *   Google Chrome browser.
 *   Access to a Google AI model compatible with the ADK agents (e.g., Gemini).
 *   Python environment with the Google Agent Development Kit (`google-adk`) installed.
-*   Environment variables configured for ADK and Google Cloud/AI Platform access (e.g., via a `.env` file in the `/agents` directory).
+*   Environment variables configured for ADK and Google Cloud/AI Platform access (e.g., via a `.env` file in each of the browser_chat and browser_controller directories).
 
 ### 2. Backend Agent Setup
 
